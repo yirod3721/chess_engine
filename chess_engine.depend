@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1770301408 source:/home/yazan3721/Documents/Coding_Tech/chess_engine/chess_engine/main.cpp
+
+1770301378 source:/home/yazan3721/Documents/Coding_Tech/chess_engine/chess_engine/board.cpp
+	<iostream>
+	<array>
+
