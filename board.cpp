@@ -2,15 +2,6 @@
 #include <iostream>
 #include <array>
 using namespace std;
-int knight_vector[8][2] = {
-	{1,2}, {-1, 2}, {-2 , 1}, {-2, -1}, {1, -2}, {-1, -2}, {2, 1}, {2, -1}
-};
-enum class PieceType {none, pawn, rook, knight, bishop, queen, king};
-enum class Color {white, black};
-struct Piece{
-	PieceType type = PieceType::none;
-	Color color = Color::white;
-};
 char piecechar(PieceType type){
 	switch(type){
 		case(PieceType::none): return '.';
