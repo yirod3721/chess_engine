@@ -1,4 +1,4 @@
-
+#include "board.h"
 #include <iostream>
 #include <array>
 using namespace std;
@@ -11,12 +11,18 @@ char piecechar(PieceType type){
 		case(PieceType::bishop): return 'B';
 		case(PieceType::queen):  return 'Q';
 		case(PieceType::king): return 'K';
-	return '.';
+	
 
 	}
+	return '.';
 };
 Piece board[8][8];
-
+bool isinsideboard(int x, int y){
+	if (x >= 0 && x <= 7 && y >= 0 && y <= 7){
+		return true;
+	}
+	return false;
+}
 void initboard(Piece board[8][8]){
 	//board clearer
 	for(int y = 7; y >= 0; y--){
@@ -97,25 +103,10 @@ void piece_move(int x1, int y1, int x2, int y2, Piece board[8][8]){
 
 
 }
-bool valid_knight_move(int x1, int y1, int x2, int y2){
-	if (x2 < 0 || x2 > 7 || y2 < 0 || y2 > 7){
-		return false;
-	}
-
-
-	int dx = x2 - x1;
-	int dy = y2 - y1;
-	for(int i = 0; i<=7; i++){
-		if (dx == knight_vector[i][0] && dy == knight_vector[i][1]){
-			return true;
-		}
-	}
-	return false;
-}
-int main()
-{
-initboard(board);
-boardprinter(board);
-piece_move(4, 1, 4, 2, board);
-boardprinter(board);
+int main(){
+	initboard(board);
+	boardprinter(board);
+	piece_move(4, 1, 4, 2, board);
+	boardprinter(board);
+	return 0;
 }
