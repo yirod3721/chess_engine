@@ -103,10 +103,3 @@ void piece_move(int x1, int y1, int x2, int y2, Piece board[8][8]){
 
 
 }
-int main(){
-	initboard(board);
-	boardprinter(board);
-	piece_move(4, 1, 4, 2, board);
-	boardprinter(board);
-	return 0;
-}

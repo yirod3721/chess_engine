@@ -18,3 +18,51 @@ bool valid_knight_move(int x1, int y1, int x2, int y2){
 	return false;
 }
 
+bool valid_pawn_move(int x1, int y1, int x2, int y2, Piece board[8][8]){
+	// white pawn rules(no queening)
+	if ((board[y1][x1].color == Color::white) && (board[y1][x1].type == PieceType::pawn)){
+		if ((x2 == x1) && (y2 == (y1+1)) && (board[y2][x2].type == PieceType::none)){
+			return true;
+
+		}
+		if ((x2 == x1) && (y2 == (y1+2)) && (board[y2][x2].type == PieceType::none) && (y1 == 1)){
+			return true;
+
+		}
+		if ((x2 == (x1 + 1)) && (y2 == (y1 + 1)) && (board[y2][x2].type != PieceType::none) && (board[y2][x2].color == Color::black))
+		{
+			return true;
+		}
+
+		if ((x2 == (x1 - 1)) && (y2 == (y1 + 1)) && (board[y2][x2].type != PieceType::none) && (board[y2][x2].color == Color::black)){
+			return true;
+		}
+
+		
+	}
+	//black pawn rules
+	if ((board[y1][x1].color == Color::black) && (board[y1][x1].type == PieceType::pawn)){
+		if ((x2 == x1) && (y2 == (y1-1)) && (board[y2][x2].type == PieceType::none)){
+			return true;
+
+		}
+		if ((x2 == x1) && (y2 == (y1-2)) && (board[y2][x2].type == PieceType::none) && (y1 == 6)){
+			return true;
+
+		}
+		if ((x2 == (x1 + 1)) && (y2 == (y1 - 1)) && (board[y2][x2].type != PieceType::none) && (board[y2][x2].color == Color::white))
+		{
+			return true;
+		}
+		if ((x2 == (x1 - 1)) && (y2 == (y1 - 1)) && (board[y2][x2].type != PieceType::none) && (board[y2][x2].color == Color::white)){
+			return true;
+		}
+
+		
+
+
+
+	}
+
+
+}
